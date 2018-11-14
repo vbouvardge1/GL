@@ -13,5 +13,6 @@ int main (void)
 		else if(val==5 && total>0)
 		total=total-2;
 	}
+	
 	return 0;
 }
