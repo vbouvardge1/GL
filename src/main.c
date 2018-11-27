@@ -1,7 +1,7 @@
-#define seuilb -100
-#define seuilh 200
-#define N 6
 #include <stdlib.h>
+#define SEUILB -100
+#define SEUILH 200
+#define N 6
 
 
 int main(void)
@@ -10,6 +10,7 @@ int main(void)
   int i;
   int sat[10]={rand()-16384,rand()-16384,rand()-16384,rand()-16384,rand()-16384,rand()-16384,rand()-16384,rand()-16384,rand()-16384,rand()-16384};
    unsigned char dist[10]={14,13,11,10,8,7,5,4,2,1};
+   unsigned char ouput_dist[10];
    unsigned char a[5]={1,5,9,8,11};
    unsigned char b[5];
    unsigned char miroir[N]={0,2,4};
@@ -28,11 +29,11 @@ int main(void)
    
    for (i=0; i<10 ; i++)
    {
-	   if(sat[i]<seuilb)
-	   {	sat[i]=seuilb;
+	   if(sat[i]<SEUILB)
+	   {	sat[i]=SEUILB;
 	   }
-	   else if (sat[i]>seuilh)
-	   {	sat[i]=seuilh;
+	   else if (sat[i]>SEUILH)
+	   {	sat[i]=SEUILH;
 	   }
 	   else
 		   ;
@@ -42,13 +43,13 @@ int main(void)
    {
 	  if(dist[i]!=0)
 	  {
-	   if( dist[i]<dist[i-1] )
+	   if( ouput_dist[i]<dist[i-1] )
 	   {
-	 dist[i]=dist[i-1]-dist[i];
+	 ouput_dist[i]=dist[i-1]-dist[i];
 	   }
-	  else if( dist[i]>dist[i-1])
+	  else if( ouput_dist[i]>dist[i-1])
 	  {
-	 dist[i]=dist[i]-dist[i-1];
+	 ouput_dist[i]=dist[i]-dist[i-1];
    }
    } } 
    
